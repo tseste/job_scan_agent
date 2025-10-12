@@ -29,8 +29,10 @@ agent = create_react_agent(
     tools=tools,
     prompt=react_prompt_with_format_instructions
 )
-agent_executor = AgentExecutor(agent=agent, tools=tools, handle_parsing_errors=True, verbose=True)
-chain = agent_executor
+agent_executor = AgentExecutor(agent=agent, tools=tools, return_intermediate_steps=True, handle_parsing_errors=True, verbose=True)
+extract_ouput = RunnableLambda(lambda x: x["output"])
+parse_output = RunnableLambda(lambda x: output_parser.parse(x))
+chain = agent_executor | extract_ouput | parse_output
 
 
 def main():
