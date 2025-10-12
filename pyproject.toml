@@ -3,7 +3,7 @@ name = "udemy-langchain-crashcourse"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.10.16"
+requires-python = ">=3.10"
 dependencies = [
     "black>=25.9.0",
     "isort>=7.0.0",
@@ -12,6 +12,7 @@ dependencies = [
     "langchain-openai>=0.3.35",
     "python-dotenv>=1.1.1",
     "langgraph>=0.6.10",
+    "langchain-tavily>=0.2.12",
 ]
 
 [dependency-groups]
