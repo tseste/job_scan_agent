@@ -19,15 +19,19 @@ structured_llm = llm.with_structured_output(AgentResponse)
 react_prompt = hub.pull("tseste/react")
 react_prompt_with_format_instructions = PromptTemplate(
     template=REACT_PROMPT_WITH_FORMAT_INSTRUCTIONS,
-    input_variables=["input", "agent_scratchpad", "tools", "tool_names"]
+    input_variables=["input", "agent_scratchpad", "tools", "tool_names"],
 ).partial(format_instructions="")
 
 agent = create_react_agent(
-    llm=llm,
-    tools=tools,
-    prompt=react_prompt_with_format_instructions
+    llm=llm, tools=tools, prompt=react_prompt_with_format_instructions
 )
-agent_executor = AgentExecutor(agent=agent, tools=tools, return_intermediate_steps=True, handle_parsing_errors=True, verbose=True)
+agent_executor = AgentExecutor(
+    agent=agent,
+    tools=tools,
+    return_intermediate_steps=True,
+    handle_parsing_errors=True,
+    verbose=True,
+)
 extract_ouput = RunnableLambda(lambda x: x["output"])
 chain = agent_executor | extract_ouput | structured_llm
 

@@ -33,5 +33,6 @@ Musk's political activities, views, and statements have made him a polarizing fi
     response = chain.invoke({"information": information})
     print(response.content)
 
+
 if __name__ == "__main__":
     main()
