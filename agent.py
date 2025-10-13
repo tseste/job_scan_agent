@@ -14,7 +14,7 @@ from schemas import AgentResponse
 
 tools = [TavilySearch()]
 
-llm = ChatOllama(model="qwen3:14b")
+llm = ChatOllama(model="qwen3:14b-ctx")
 structured_llm = llm.with_structured_output(AgentResponse)
 react_prompt = hub.pull("tseste/react")
 react_prompt_with_format_instructions = PromptTemplate(
