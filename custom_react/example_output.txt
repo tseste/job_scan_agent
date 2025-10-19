@@ -1,0 +1,70 @@
+Prompt to LLM:
+--------------
+Human: 
+Answer the following questions as best you can. You have access to the following tools:
+
+get_text_length(text: str) -> int - Returns the length of a text by characters
+
+Use the following format:
+
+Question: the input question you must answer
+Thought: you should always think about what to do, CRITICAL: Your next step MUST be an action. Do not skip the 'Action:' tag.
+Action: the action to take, should be one of [get_text_length], CRITICAL: Your next step MUST be an action input. Do not skip the 'Action Input:' tag.
+Action Input: the input to the action, don't skip Action input even if it is empty
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times)
+Thought: I now know the final answer
+Final Answer: the final answer to the original input question
+
+Begin!
+
+Question: What is the length of 'DOG' in characters?
+Thought: 
+    
+--------------
+LLM Response:
+--------------
+Thought: I need to determine the number of characters in the text 'DOG'. The appropriate tool for this is get_text_length.
+Action: get_text_length
+Action Input: 'DOG'
+
+--------------
+tool='get_text_length' tool_input="'DOG'\n" log="Thought: I need to determine the number of characters in the text 'DOG'. The appropriate tool for this is get_text_length.\nAction: get_text_length\nAction Input: 'DOG'\n"
+observation=3
+Prompt to LLM:
+--------------
+Human: 
+Answer the following questions as best you can. You have access to the following tools:
+
+get_text_length(text: str) -> int - Returns the length of a text by characters
+
+Use the following format:
+
+Question: the input question you must answer
+Thought: you should always think about what to do, CRITICAL: Your next step MUST be an action. Do not skip the 'Action:' tag.
+Action: the action to take, should be one of [get_text_length], CRITICAL: Your next step MUST be an action input. Do not skip the 'Action Input:' tag.
+Action Input: the input to the action, don't skip Action input even if it is empty
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times)
+Thought: I now know the final answer
+Final Answer: the final answer to the original input question
+
+Begin!
+
+Question: What is the length of 'DOG' in characters?
+Thought: Thought: I need to determine the number of characters in the text 'DOG'. The appropriate tool for this is get_text_length.
+Action: get_text_length
+Action Input: 'DOG'
+
+Observation: 3
+Thought: 
+    
+--------------
+LLM Response:
+--------------
+The length of 'DOG' in characters is 3.
+
+Final Answer: 3
+--------------
+return_values={'output': '3'} log="The length of 'DOG' in characters is 3.\n\nFinal Answer: 3"
+{'output': '3'}
