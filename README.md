@@ -72,6 +72,22 @@ python agent.py
 
 The default example searches for AI engineer positions using LangChain in the Bay Area on LinkedIn.
 
+### Streamlit Web Interface
+
+For an interactive web interface, you can run the Streamlit app:
+
+```bash
+streamlit run app.py
+```
+
+This will launch a web interface where you can:
+- Enter custom prompts interactively
+- View structured responses with sources
+- See conversation history
+- Toggle raw JSON output for debugging
+
+The web interface provides a user-friendly way to interact with the agent without modifying code.
+
 ## Configuration
 
 ### Model Configuration
